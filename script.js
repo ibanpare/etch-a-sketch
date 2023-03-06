@@ -15,3 +15,16 @@ have each pass through with the mouse change it to a completely random RGB value
 Then try having each pass just add another 10% of black to it so that only after 10 passes is the square completely black.
 
 */
+
+let rows = 16;
+let columns = rows;
+
+let squares = document.querySelector("#squares")
+
+for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < columns; j++) {
+        const square = document.createElement('div');
+        square.setAttribute("id", `${i}${j}`);
+        squares.appendChild(square);
+    }
+}

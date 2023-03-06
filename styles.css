@@ -1,11 +1,24 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 h1 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color: darkslategray;
+    margin-bottom: 50px;
 }
 
 #squares div {
-    height: 10px;
-    width: 10px;
-    border: 2px solid black;
+    height: 30px;
+    width: 30px;
+    border: 1px solid gray;
 }
 
+#squares {
+    display: flex;
+    max-width: 512px;
+    flex-wrap: wrap;
+}

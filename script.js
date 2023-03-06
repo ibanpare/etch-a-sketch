@@ -1,4 +1,4 @@
-/* Create a webpage with a 16x16 grid of square divs
+/* 
 
 If mouse hovers over a div,
 the div changes color
@@ -28,3 +28,10 @@ for (let i = 0; i < rows; i++) {
         squares.appendChild(square);
     }
 }
+
+const square = document.querySelectorAll("#squares div")
+square.forEach((element) => {
+    element.addEventListener("mouseover", () => {
+        element.style.backgroundColor = "black";
+    })
+});

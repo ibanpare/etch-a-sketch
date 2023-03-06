@@ -1,8 +1,4 @@
 /* 
-
-If mouse hovers over a div,
-the div changes color
-
 If mouse click button at the top of the screen
 a popup asks the number of squares per side of the new grid
 once entered, the existing grid should be removed 
@@ -21,6 +17,15 @@ let columns = rows;
 
 let squares = document.querySelector("#squares")
 
+function getRandomRGBA () {
+    let r = Math.ceil(Math.random() * 255); // da 0 a 255
+    let g = Math.ceil(Math.random() * 255);
+    let b = Math.ceil(Math.random() * 255);
+    let a = Math.ceil(Math.random()) * 10 / 10    ; // da 0 a 1 in incrementi di 10%
+   
+    return (`rgba(${r}, ${g}, ${b}, ${a})`);
+}
+
 for (let i = 0; i < rows; i++) {
     for (let j = 0; j < columns; j++) {
         const square = document.createElement('div');
@@ -32,6 +37,6 @@ for (let i = 0; i < rows; i++) {
 const square = document.querySelectorAll("#squares div")
 square.forEach((element) => {
     element.addEventListener("mouseover", () => {
-        element.style.backgroundColor = "black";
+        element.style.backgroundColor = getRandomRGBA();
     })
 });

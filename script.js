@@ -21,7 +21,7 @@ function getRandomRGBA () {
     let r = Math.ceil(Math.random() * 255); // da 0 a 255
     let g = Math.ceil(Math.random() * 255);
     let b = Math.ceil(Math.random() * 255);
-    let a = Math.ceil(Math.random()) * 10 / 10    ; // da 0 a 1 in incrementi di 10%
+    let a = 0.1;
    
     return (`rgba(${r}, ${g}, ${b}, ${a})`);
 }

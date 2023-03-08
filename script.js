@@ -25,17 +25,34 @@ function getRandomRGBA () {
     return (`rgba(${r}, ${g}, ${b}, ${a})`);
 }
 
-for (let i = 0; i < rows; i++) {
-    for (let j = 0; j < columns; j++) {
-        const square = document.createElement('div');
-        square.setAttribute("id", `${i}${j}`);
-        squares.appendChild(square);
+function createSquares(rows, columns) {    
+    for (let i = 0; i < rows; i++) {
+        for (let j = 0; j < columns; j++) {
+            const square = document.createElement('div');
+            square.setAttribute("id", `${i}${j}`);
+            squares.appendChild(square);
+        }
     }
-}
 
-const square = document.querySelectorAll("#squares div")
-square.forEach((element) => {
+    const square = document.querySelectorAll("#squares div");
+    square.forEach((element) => {
     element.addEventListener("mouseover", () => {
         element.style.backgroundColor = getRandomRGBA();
     })
 });
+};
+
+function resetSquares() {
+    const square = document.querySelectorAll("#squares div");
+    square.forEach((element) => {
+        squares.removeChild(element);
+    });
+    rows = parseInt(prompt("Insert number of rows: "));
+    columns = parseInt(prompt("Insert number of columns: "));
+};
+
+const resetButton = document.querySelector("#setup button")
+resetButton.addEventListener("click", resetSquares);
+
+//default squares
+createSquares(16,16);

@@ -24,22 +24,23 @@ function getRandomRGBA () {
 }
 
 //creates squares with mouseover logic
-function createSquares(rows, columns) {    
-    for (let i = 0; i < rows; i++) {
-        for (let j = 0; j < columns; j++) {
-            const square = document.createElement('div');
-            square.setAttribute("id", `${i}${j}`);
-            squares.appendChild(square);
+function createSquares(squaresPerSide) {    
+    for (let i = 1; i <= (squaresPerSide ** 2); i++) {
+        const square = document.createElement('div');
+        square.setAttribute("id", `${i}`);
+        squares.appendChild(square);
+        square.style.cssText = `
+        height: ${(512 / (squaresPerSide) - 2)}px;
+        width: ${(512 / (squaresPerSide)- 2)}px;
+    `;
         }
-    }
-
-    const square = document.querySelectorAll("#squares div");
-    square.forEach((element) => {
+    const coloredSquare = document.querySelectorAll("#squares div");
+    coloredSquare.forEach((element) => {
             element.addEventListener("mouseover", () => {
             element.style.backgroundColor = getRandomRGBA();
             });
         });
-};
+    };
 
 //deletes and recreates squares
 function resetSquares() {
@@ -47,13 +48,15 @@ function resetSquares() {
     square.forEach((element) => {
         squares.removeChild(element);
     });
-    rows = parseInt(prompt("Insert number of rows: "));
-    columns = parseInt(prompt("Insert number of columns: "));
-    createSquares(rows, columns);
+    if ((squaresPerSide = parseInt(prompt("Insert number of squares per side: "))) > 100) {
+        alert("Sorry, the maximum is 100!");
+    } else {
+        createSquares(squaresPerSide);
+    };
 };
 
 const resetButton = document.querySelector("#setup button")
 resetButton.addEventListener("click", resetSquares);
 
 //default behavior
-createSquares(16,16);
+createSquares(16);

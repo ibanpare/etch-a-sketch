@@ -1,10 +1,3 @@
-/* 
-
-Extra Credit
-Then try having each pass just add another 10% of black to it so that only after 10 passes is the square completely black.
-
-*/
-
 let squares = document.querySelector("#squares")
 
 //random RGB color for mouseover event
@@ -29,7 +22,6 @@ function colorSquares() {
     });
 };
 
-
 //creates squares with mouseover logic
 function createSquares(squaresPerSide) {    
     for (let i = 1; i <= (squaresPerSide ** 2); i++) {
@@ -41,6 +33,21 @@ function createSquares(squaresPerSide) {
         width: ${(512 / (squaresPerSide)- 2)}px;
     `;
     };
+};
+
+//colors squares black and adds 10% opacity with every hover
+function darkenSquares() {
+    const coloredSquare = document.querySelectorAll("#squares div");
+    coloredSquare.forEach((element) => {
+        element.addEventListener("mouseover", () => {
+            if (element.style.backgroundColor === "") {
+                element.style.backgroundColor = "black";
+                element.style.opacity = 0.1;
+            } else if (parseFloat(element.style.opacity)  < 1){
+                element.style.opacity = parseFloat(element.style.opacity) + 0.1;
+            };
+        });
+    });
 };
 
 //deletes and recreates squares
@@ -56,7 +63,7 @@ function resetSquares() {
         alert("Sorry, the maximum is 100!");
     } else {
         createSquares(squaresPerSide);
-        colorSquares();
+        darkenSquares();
     };
 };
 
@@ -65,4 +72,4 @@ resetButton.addEventListener("click", resetSquares);
 
 //default behavior
 createSquares(16);
-colorSquares();
+darkenSquares();

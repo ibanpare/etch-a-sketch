@@ -17,6 +17,19 @@ function getRandomRGBA () {
     return (`rgba(${r}, ${g}, ${b}, ${a})`);
 }
 
+//colors squares with random RGB color
+function colorSquares() {
+    const coloredSquare = document.querySelectorAll("#squares div");
+    coloredSquare.forEach((element) => {
+        element.addEventListener("mouseover", () => {
+            if (element.style.backgroundColor === "") {
+                element.style.backgroundColor = getRandomRGBA();
+            };
+        });
+    });
+};
+
+
 //creates squares with mouseover logic
 function createSquares(squaresPerSide) {    
     for (let i = 1; i <= (squaresPerSide ** 2); i++) {
@@ -27,16 +40,8 @@ function createSquares(squaresPerSide) {
         height: ${(512 / (squaresPerSide) - 2)}px;
         width: ${(512 / (squaresPerSide)- 2)}px;
     `;
-        }
-    const coloredSquare = document.querySelectorAll("#squares div");
-    coloredSquare.forEach((element) => {
-            element.addEventListener("mouseover", () => {
-                if (element.style.backgroundColor === "") {
-                    element.style.backgroundColor = getRandomRGBA();
-                }
-            });
-        });
     };
+};
 
 //deletes and recreates squares
 function resetSquares() {
@@ -51,6 +56,7 @@ function resetSquares() {
         alert("Sorry, the maximum is 100!");
     } else {
         createSquares(squaresPerSide);
+        colorSquares();
     };
 };
 
@@ -59,3 +65,4 @@ resetButton.addEventListener("click", resetSquares);
 
 //default behavior
 createSquares(16);
+colorSquares();

@@ -7,14 +7,24 @@ body {
 
 h1 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 40px;
     color: darkslategray;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
+}
+
+#setup button {
+    font-size: 16px;
+    margin-bottom: 30px;
+    padding: 10px 30px;
+    background-color: #00001A;
+    color: #ffffff;
+    border-radius: 6px;
 }
 
 #squares div {
     height: 30px;
     width: 30px;
-    border: 1px solid gray;
+    border: 1px solid #00001A;
 }
 
 #squares {

@@ -6,7 +6,6 @@ and a new grid should be generated in the same total space as before (e.g. 960px
 Set the limit for the user input to a maximum of 100
 
 Extra Credit
-Instead of just changing the color of a square from black to white (for example), 
 have each pass through with the mouse change it to a completely random RGB value. 
 Then try having each pass just add another 10% of black to it so that only after 10 passes is the square completely black.
 
@@ -21,7 +20,7 @@ function getRandomRGBA () {
     let r = Math.ceil(Math.random() * 255); // da 0 a 255
     let g = Math.ceil(Math.random() * 255);
     let b = Math.ceil(Math.random() * 255);
-    let a = 0.1;
+    let a = 0.5;
    
     return (`rgba(${r}, ${g}, ${b}, ${a})`);
 }

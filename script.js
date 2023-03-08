@@ -37,7 +37,9 @@ function createSquares(squaresPerSide) {
     const coloredSquare = document.querySelectorAll("#squares div");
     coloredSquare.forEach((element) => {
             element.addEventListener("mouseover", () => {
-            element.style.backgroundColor = getRandomRGBA();
+                if (element.style.backgroundColor === "") {
+                    element.style.backgroundColor = getRandomRGBA();
+                }
             });
         });
     };

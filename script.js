@@ -1,9 +1,4 @@
 /* 
-If mouse click button at the top of the screen
-a popup asks the number of squares per side of the new grid
-once entered, the existing grid should be removed 
-and a new grid should be generated in the same total space as before (e.g. 960px wide) 
-Set the limit for the user input to a maximum of 100
 
 Extra Credit
 have each pass through with the mouse change it to a completely random RGB value. 
@@ -50,7 +45,10 @@ function resetSquares() {
     square.forEach((element) => {
         squares.removeChild(element);
     });
-    if ((squaresPerSide = parseInt(prompt("Insert number of squares per side: "))) > 100) {
+    
+    squaresPerSide = parseInt(prompt("Insert number of squares per side: "));
+
+    if (squaresPerSide > 100) {
         alert("Sorry, the maximum is 100!");
     } else {
         createSquares(squaresPerSide);

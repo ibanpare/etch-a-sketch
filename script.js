@@ -1,7 +1,6 @@
 /* 
 
 Extra Credit
-have each pass through with the mouse change it to a completely random RGB value. 
 Then try having each pass just add another 10% of black to it so that only after 10 passes is the square completely black.
 
 */
@@ -45,7 +44,7 @@ function resetSquares() {
     square.forEach((element) => {
         squares.removeChild(element);
     });
-    
+
     squaresPerSide = parseInt(prompt("Insert number of squares per side: "));
 
     if (squaresPerSide > 100) {

@@ -6,8 +6,18 @@ body {
 }
 
 #container {
-    border: 1px black solid;
+
     display: flex;
     width: 480px;
     height: 480px;
+    gap: 3px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.square {
+    flex: 0 0 25px;
+    border: 1px solid black;
+    height: 25px;
 }

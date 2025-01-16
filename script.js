@@ -5,10 +5,10 @@ const resetBtn = document.querySelector("#resetBtn");
 
 function drawGrid(sideSize) {
     size = sideSize ** 2;
+    let squareWidth = 480/(+sideSize + 5);
+    let squareHeight = squareWidth;
     for (let i = 1; i <= size; i++) {
         const littleSquare = document.createElement("div");
-        let squareWidth = 480/(sideSize + 5);
-        let squareHeight = squareWidth;
         littleSquare.classList.add("square");
         littleSquare.setAttribute(`style`, `flex: 0 0 ${squareWidth}px; height: ${squareHeight}px`);
         container.appendChild(littleSquare);

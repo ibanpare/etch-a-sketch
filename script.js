@@ -1,33 +1,37 @@
 const container = document.querySelector("#container");
 const changeSizeBtn = document.querySelector("#changeSizeBtn");
 const resetBtn = document.querySelector("#resetBtn");
-const squares = document.querySelectorAll(".square");
 
-function drawGrid(size) {
+
+function drawGrid(sideSize) {
+    size = sideSize ** 2;
     for (let i = 1; i <= size; i++) {
         const littleSquare = document.createElement("div");
+        let squareWidth = 480/(sideSize + 5);
+        let squareHeight = squareWidth;
         littleSquare.classList.add("square");
+        littleSquare.setAttribute(`style`, `flex: 0 0 ${squareWidth}px; height: ${squareHeight}px`);
         container.appendChild(littleSquare);
     }
+    const squares = document.querySelectorAll(".square");
+    squares.forEach((square) => {
+        square.addEventListener("mouseover", () => {
+            square.classList.add("colored");
+        })
+    })    
 }
 
 function resetGrid() {
     container.textContent = '';
 }
 
-squares.forEach((square) => {
-    square.addEventListener("mouseover", () => {
-        square.classList.add("colored");
-    })
-})
-
 resetBtn.addEventListener("click", () => {
     resetGrid();
 })
 
 changeSizeBtn.addEventListener("click", () => {
-    drawGrid(prompt("How many squares do you want? Pick a number from 1 to 100."));
-})
+    resetGrid();
+    drawGrid(prompt("How many squares per side do you want? Pick a number from 1 to 100."));
+});
 
-drawGrid(256);
-
+drawGrid(16);

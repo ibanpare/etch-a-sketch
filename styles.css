@@ -21,3 +21,7 @@ body {
     border: 1px solid black;
     height: 25px;
 }
+
+.colored {
+    background-color: darkmagenta;
+}

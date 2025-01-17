@@ -16,9 +16,17 @@ function drawGrid(sideSize) {
     const squares = document.querySelectorAll(".square");
     squares.forEach((square) => {
         square.addEventListener("mouseover", () => {
-            square.classList.add("colored");
+            square.style.backgroundColor = getRandomColor();
+            square.style.opacity += 0.1;
         })
     })    
+}
+
+function getRandomColor() {
+    let red = Math. floor(Math. random() * 256);
+    let green = Math. floor(Math. random() * 256);
+    let blue = Math. floor(Math. random() * 256);
+    return `rgb(${red}, ${green}, ${blue})`;
 }
 
 function resetGrid() {

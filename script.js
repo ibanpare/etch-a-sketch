@@ -13,13 +13,6 @@ function drawGrid(sideSize) {
         littleSquare.setAttribute(`style`, `flex: 0 0 ${squareWidth}px; height: ${squareHeight}px`);
         container.appendChild(littleSquare);
     }
-    const squares = document.querySelectorAll(".square");
-    squares.forEach((square) => {
-        square.addEventListener("mouseover", () => {
-            square.style.backgroundColor = getRandomColor();
-            square.style.opacity += 0.1;
-        })
-    })    
 }
 
 function getRandomColor() {
@@ -43,3 +36,17 @@ changeSizeBtn.addEventListener("click", () => {
 });
 
 drawGrid(16);
+
+const squares = document.querySelectorAll(".square");
+squares.forEach((square) => {
+    square.addEventListener("mouseover", () => {
+        if (!square.style.opacity) {square.style.opacity = 0.1};
+        square.style.opacity = parseFloat(square.style.opacity) + 0.1;
+        square.style.backgroundColor = getRandomColor();
+    })
+})    
+
+/*
+Bisogna riscrivere il disegna grid da 0
+E triggerare la colorazione post disegno
+*/

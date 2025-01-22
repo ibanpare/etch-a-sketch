@@ -4,14 +4,17 @@ const resetBtn = document.querySelector("#resetBtn");
 
 function drawGrid(sideSize) {
   size = sideSize ** 2;
-  let squareWidth = 480 / (+sideSize + 5);
+  let squareWidth = (480/sideSize) - 4;
   let squareHeight = squareWidth;
+  console.log("size is" + size);
+  console.log("side size is" + sideSize);
+  console.log("square hegiht is" + squareHeight);
   for (let i = 1; i <= size; i++) {
     const littleSquare = document.createElement("div");
     littleSquare.classList.add("square");
     littleSquare.setAttribute(
       `style`,
-      `flex: 0 0 ${squareWidth}px; height: ${squareHeight}px`
+      `width: ${squareWidth}px; height: ${squareHeight}px`
     );
     container.appendChild(littleSquare);
   }
@@ -54,7 +57,5 @@ changeSizeBtn.addEventListener("click", () => {
 
 drawGrid(16);
 
-/*
-Bisogna riscrivere il disegna grid da 0
-E triggerare la colorazione post disegno
-*/
+// still bugged as fuck with many squares + need to refactor
+// and add a constant for margins

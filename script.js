@@ -2,13 +2,14 @@ const container = document.querySelector("#container");
 const changeSizeBtn = document.querySelector("#changeSizeBtn");
 const resetBtn = document.querySelector("#resetBtn");
 
+const containerSize = 480;
+const margin = 1;
+const totalMarginPerSquare = margin * 2;
+
 function drawGrid(sideSize) {
   size = sideSize ** 2;
-  let squareWidth = (480/sideSize) - 4;
+  let squareWidth = (containerSize/sideSize) - totalMarginPerSquare;
   let squareHeight = squareWidth;
-  console.log("size is" + size);
-  console.log("side size is" + sideSize);
-  console.log("square hegiht is" + squareHeight);
   for (let i = 1; i <= size; i++) {
     const littleSquare = document.createElement("div");
     littleSquare.classList.add("square");
@@ -56,6 +57,3 @@ changeSizeBtn.addEventListener("click", () => {
 });
 
 drawGrid(16);
-
-// still bugged as fuck with many squares + need to refactor
-// and add a constant for margins
